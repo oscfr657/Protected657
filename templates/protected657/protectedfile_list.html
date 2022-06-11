@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Protected files</h2>
+    <a href="{% url "protected657:add" %}">Add File</a>
+    <table width="50%">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Created by</th>
+                <th>Created at</th>
+                <th>File</th>
+            </tr>
+        </thead>
+        {% for file in object_list %}
+            <tr>
+            <td>{{ file.title }}</td>
+            <td>{{ file.created_by }}</td>
+            <td>{{ file.created_at }}</td>
+            <td><a href="{{ file.file.url }}">{{ file.file.name }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
