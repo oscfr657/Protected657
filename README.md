@@ -17,6 +17,17 @@ django>=3.2.9
 
 > pip install -r requirements.txt
 
+## Setup ##
+
+### Nginx ###
+
+``` bash
+    location /internal/ {
+        internal;
+        alias /home/app/protected/files/;
+    }
+```
+
 ### Django settings ###
 
 To your settings file,
@@ -51,10 +62,6 @@ urlpatterns += [
     path('protected/', include('protected657.urls', namespace='protected657')),
   ]
 ```
-
-### Collectstatic ###
-
-> python3 manage.py collectstatic
 
 ## For development ##
 

@@ -1,10 +1,10 @@
-import mimetypes
 from urllib.parse import quote
 
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.sites.shortcuts import get_current_site
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from django.http import  HttpResponse, HttpResponseForbidden
@@ -21,7 +21,8 @@ class ProtectedFileList(LoginRequiredMixin, ListView):
         queryset = ProtectedFile.objects.all()
         if not self.request.user.is_superuser:
             queryset = queryset.filter(
-                created_by=self.request.user
+                created_by=self.request.user,
+                site=get_current_site(self.request)
             )
         return queryset
 
@@ -35,12 +36,17 @@ class ProtectedFileCreate(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
+        form.instance.site = get_current_site(self.request)
         return super().form_valid(form)
 
 
 class ProtectedFileView(View):
     def get(self, request, relative_path):
-        protected_file = get_object_or_404(ProtectedFile, file=relative_path)
+        protected_file = get_object_or_404(
+            ProtectedFile,
+            file=relative_path,
+            site=get_current_site(self.request)
+            )
         if not (request.user.is_superuser or protected_file.created_by == request.user):
             return HttpResponseForbidden()
         if settings.DEBUG:
@@ -50,7 +56,7 @@ class ProtectedFileView(View):
             )
         else:
             response = HttpResponse()
-            response['Content-Type'] = mimetypes.guess_type(protected_file.file.name)[0]
+            response['Content-Type'] = protected_file.file_type
             response['Content-Disposition'] = f'attachment; filename={protected_file.file.name}'
             url_path = quote(f'/internal/{protected_file.file.name}')
             response['X-Accel-Redirect'] = url_path

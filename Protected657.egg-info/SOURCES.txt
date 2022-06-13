@@ -9,6 +9,7 @@ setup.py
 ./urls.py
 ./views.py
 ./migrations/0001_initial.py
+./migrations/0002_auto_20220613_2334.py
 ./migrations/__init__.py
 ./templates/protected657/protectedfile_form.html
 ./templates/protected657/protectedfile_list.html
