@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Protected657
-Version: 0.0.1a2
+Version: 0.0.1a3
 Summary: A Django app to keep files protected, works with Nginx.
 Home-page: https://github.com/oscfr657/Protected657
 Author: Oscar F

@@ -19,11 +19,33 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ProtectedFile',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID',
+                    ),
+                ),
                 ('title', models.CharField(blank=True, max_length=255)),
-                ('file', models.FileField(storage=django.core.files.storage.FileSystemStorage(base_url='/protected/media/', location='protected/files/'), upload_to='')),
+                (
+                    'file',
+                    models.FileField(
+                        storage=django.core.files.storage.FileSystemStorage(
+                            base_url='/protected/media/', location='protected/files/'
+                        ),
+                        upload_to='',
+                    ),
+                ),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
-                ('created_by', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL)),
+                (
+                    'created_by',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
                 'ordering': ['-created_at'],

@@ -4,6 +4,10 @@
 
 ## commits ##
 
+### 19 June 2022 ###
+
+    Black. Build 0.0.1a3.
+
 ### 14 June 2022 ###
 
     Added site and file_type. Build 0.0.1a2.

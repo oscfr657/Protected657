@@ -10,5 +10,8 @@ app_name = 'protected657'
 urlpatterns = [
     path('', ProtectedFileList.as_view(), name='list'),
     path('add/', ProtectedFileCreate.as_view(), name='add'),
-    path('media/<path:relative_path>', ProtectedFileView.as_view(), name='protected-media'),
+    path(
+        'media/<path:relative_path>',
+        ProtectedFileView.as_view(),
+        name='protected-media'),
 ]

@@ -8,8 +8,7 @@ class ProtectedFileAdmin(admin.ModelAdmin):
         qs = super().get_queryset(request)
         if request.user.is_superuser:
             return qs
-        return qs.filter(
-            created_by=request.user,
-            site=get_current_site(self.request))
+        return qs.filter(created_by=request.user, site=get_current_site(self.request))
+
 
 admin.site.register(ProtectedFile, ProtectedFileAdmin)

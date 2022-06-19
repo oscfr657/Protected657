@@ -11,18 +11,19 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name="Protected657",
-    version='0.0.1a2',
+    version='0.0.1a3',
     description='A Django app to keep files protected, works with Nginx.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Oscar F',
     url='https://github.com/oscfr657/Protected657',
     packages=['protected657'],
-    package_dir={'protected657':'.'},
-    package_data={'protected657': [
-        './migrations/*',
-        './templates/*',
-        './templates/*/*',
+    package_dir={'protected657': '.'},
+    package_data={
+        'protected657': [
+            './migrations/*',
+            './templates/*',
+            './templates/*/*',
         ]
     },
     include_package_data=True,
