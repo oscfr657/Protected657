@@ -65,6 +65,28 @@ urlpatterns += [
 
 ## For development ##
 
+### Testing ###
+
+#### 1. Install Selenium ####
+
+``` bash
+    pip install -U selenium
+```
+
+#### 2. Install a Chromedriver ####
+
+    ! Selenium and Snap issues
+
+    https://github.com/SeleniumHQ/selenium/issues/7788#issuecomment-764804891
+
+    https://github.com/mozilla/geckodriver/issues/2055
+
+#### Run tests ####
+
+``` bash
+    python manage.py test protected657
+```
+
 ### Build a new release ###
 
 ``` bash
@@ -75,3 +97,9 @@ urlpatterns += [
 ``` python
 python3 -m build --sdist
 ```
+
+### TODO: ###
+
+    Improve documentation
+    More sests
+    Code comments
