@@ -35,7 +35,7 @@ class ProtectedFile(models.Model):
             return u'%s' % self.title
         return u'%s' % self.file.name
 
-    def save(self):
+    def save(self, *args, **kwargs):
         # First doing a normal save
         super(ProtectedFile, self).save()
         # Then we try to get the file_type
