@@ -4,6 +4,14 @@
 
 ## commits ##
 
+### 15 April 2023 ###
+
+    Fixed ProtectedFile model save bug. Added Postman collection tests, updated Readme. Added rest API.
+
+### 13 April 2023 ###
+
+    Added Selenium tests, updated Readme, License year and templates.
+
 ### 19 June 2022 ###
 
     Black. Build 0.0.1a3.

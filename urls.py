@@ -1,10 +1,8 @@
-try:
-    from django.urls import path
-except ImportError:
-    from django.conf.urls import path
+from django.urls import path, re_path, include
 
 from protected657.views import ProtectedFileCreate, ProtectedFileList, ProtectedFileView
 
+from .routers import PROTCTEDFILES_ROUTER
 
 app_name = 'protected657'
 urlpatterns = [
@@ -14,4 +12,5 @@ urlpatterns = [
         'media/<path:relative_path>',
         ProtectedFileView.as_view(),
         name='protected-media'),
+    re_path(r'^api/', include(PROTCTEDFILES_ROUTER.urls), name='api'),
 ]
