@@ -87,6 +87,11 @@ urlpatterns += [
     python manage.py test protected657
 ```
 
+#### Postman ####
+
+    It's required to set the username, password and host variables for Postman to function.
+    The door_logo43.png file used in the POST tests can be found in the tests folder.
+
 ### Build a new release ###
 
 ``` bash
