@@ -5,7 +5,8 @@ setup.py
 ./admin.py
 ./apps.py
 ./models.py
-./tests.py
+./routers.py
+./serializers.py
 ./urls.py
 ./views.py
 ./migrations/0001_initial.py
@@ -18,3 +19,4 @@ Protected657.egg-info/SOURCES.txt
 Protected657.egg-info/dependency_links.txt
 Protected657.egg-info/requires.txt
 Protected657.egg-info/top_level.txt
+tests/test_selenium.py

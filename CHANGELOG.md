@@ -6,7 +6,10 @@
 
 ### 15 April 2023 ###
 
-    Fixed ProtectedFile model save bug. Added Postman collection tests, updated Readme. Added rest API.
+    Fixed ProtectedFile model save bug.
+    Added Postman collection tests, updated Readme.
+    Added rest API.
+    Build 0.1.0a1.
 
 ### 13 April 2023 ###
 
