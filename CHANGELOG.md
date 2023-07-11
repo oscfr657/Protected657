@@ -4,6 +4,12 @@
 
 ## commits ##
 
+### 12 July 2023 ###
+
+    Improved Postman tests.
+    Removing actual file on system before delete of file from db.
+    Build 0.2.0a.
+
 ### 15 April 2023 ###
 
     Fixed ProtectedFile model save bug.

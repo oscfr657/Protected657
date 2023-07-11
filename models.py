@@ -34,14 +34,33 @@ class ProtectedFile(models.Model):
         if self.title:
             return u'%s' % self.title
         return u'%s' % self.file.name
+    
+    def remove_on_file_update(self):
+        try:
+            # is the object in the database yet?
+            obj = ProtectedFile.objects.get(id=self.id)
+        except ProtectedFile.DoesNotExist:
+            # object is not in db, nothing to worry about
+            return
+        # is the save due to an update of the actual file?
+        if obj.file and self.file and obj.file != self.file:
+            # delete the old file from the storage in favor of the new file
+            obj.file.delete()
+
+    def delete(self, *args, **kwargs):
+        # object is being removed from db, remove the file from storage first
+        self.file.delete()
+        return super().delete(*args, **kwargs)
 
     def save(self, *args, **kwargs):
+        # object is possibly being updated, if so, clean up.
+        self.remove_on_file_update()
         # First doing a normal save
-        super(ProtectedFile, self).save()
+        super().save(*args, **kwargs)
         # Then we try to get the file_type
         try:
             file_type = magic.from_buffer(self.file.file.read(), mime=True)
             self.file_type = file_type
-            super(ProtectedFile, self).save()
+            super().save()
         except (IOError, ValueError, AttributeError):
             pass  # We should probably handle and or log this.
