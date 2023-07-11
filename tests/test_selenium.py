@@ -12,7 +12,7 @@ class ProtectedFilesAdminUserTest(SeleniumChromeTestCase):
 
     USERNAME = "testare"
     PASSWORD = "password1234"
-    UPLOADFILE = f"{settings.BASE_DIR}/protected657/tests/door_logo43.png"
+    UPLOADFILE = f"{settings.BASE_DIR}/protected657/door_logo43.png"
 
     def setUp(self):
         # Create a user to login with

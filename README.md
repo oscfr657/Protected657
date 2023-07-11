@@ -8,7 +8,7 @@ A Django app to keep files protected, works with Nginx.
 ### Tested with ###
 
 ``` Python
-django>=3.2.9
+django==4.0.0
 ```
 
 ## Installation ###
@@ -78,6 +78,8 @@ urlpatterns += [
     ! Selenium and Snap issues
 
     https://github.com/SeleniumHQ/selenium/issues/7788#issuecomment-764804891
+    cd /snap/bin
+    sudo ln -s chromium.chromedriver chromedriver
 
     https://github.com/mozilla/geckodriver/issues/2055
 
@@ -90,7 +92,6 @@ urlpatterns += [
 #### Postman ####
 
     It's required to set the username, password and host variables for Postman to function.
-    The door_logo43.png file used in the POST tests can be found in the tests folder.
 
 ### Build a new release ###
 

@@ -167,7 +167,7 @@
 									"});",
 									"const $ = cheerio.load(pm.response.text()),",
 									"csrfmiddlewaretoken = $(\"input[name='csrfmiddlewaretoken']\").attr('value');",
-									"pm.collectionVariables.set(\"csrfmiddlewaretoken\", csrfmiddlewaretoken);"
+									"pm.environment.set(\"csrfmiddlewaretoken\", csrfmiddlewaretoken);"
 								],
 								"type": "text/javascript"
 							}
@@ -347,7 +347,7 @@
 									"});",
 									"const $ = cheerio.load(pm.response.text()),",
 									"csrfmiddlewaretoken = $(\"input[name='csrfmiddlewaretoken']\").attr('value');",
-									"pm.collectionVariables.set(\"csrfmiddlewaretoken\", csrfmiddlewaretoken);",
+									"pm.environment.set(\"csrfmiddlewaretoken\", csrfmiddlewaretoken);",
 									""
 								],
 								"type": "text/javascript"
@@ -444,6 +444,54 @@
 								"protected",
 								"add",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/protected/media/door_logo43.png",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"protected",
+								"media",
+								"door_logo43.png"
 							]
 						}
 					},
@@ -569,6 +617,54 @@
 							"path": [
 								"protected",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/protected/media/door_logo43.png",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"protected",
+								"media",
+								"door_logo43.png"
 							]
 						}
 					},
@@ -719,13 +815,13 @@
 		"type": "basic",
 		"basic": [
 			{
-				"key": "password",
-				"value": "{{password}}",
+				"key": "username",
+				"value": "{{username}}",
 				"type": "string"
 			},
 			{
-				"key": "username",
-				"value": "{{username}}",
+				"key": "password",
+				"value": "{{password}}",
 				"type": "string"
 			}
 		]
@@ -751,21 +847,6 @@
 		}
 	],
 	"variable": [
-		{
-			"key": "username",
-			"value": "username",
-			"type": "default"
-		},
-		{
-			"key": "password",
-			"value": "password",
-			"type": "default"
-		},
-		{
-			"key": "host",
-			"value": "http://localhost:8000",
-			"type": "default"
-		},
 		{
 			"key": "csrfmiddlewaretoken",
 			"value": ""
