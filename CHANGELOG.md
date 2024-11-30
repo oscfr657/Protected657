@@ -8,6 +8,7 @@
 
     Replaced Postman with test_api.py and test_selenium.py with cypress.
     Updated README, fixed requirements.
+    Build 0.2.1a
 
 
 ### 12 July 2023 ###

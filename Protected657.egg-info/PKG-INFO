@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Protected657
-Version: 0.2.0a0
+Version: 0.2.1a0
 Summary: A Django app to keep files protected, works with Nginx.
 Home-page: https://github.com/oscfr657/Protected657
 Author: Oscar F
@@ -10,15 +10,19 @@ Classifier: Environment :: Web Environment
 Classifier: Intended Audience :: Developers
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3 :: Only
-Classifier: Programming Language :: Python :: 3.6
 Classifier: Programming Language :: Python :: 3.7
 Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
 Classifier: Framework :: Django
 Classifier: Topic :: Internet :: WWW/HTTP
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE.md
+Requires-Dist: django
+Requires-Dist: djangorestframework
+Requires-Dist: python-magic
 
 
 # Protected657 #
@@ -30,7 +34,7 @@ A Django app to keep files protected, works with Nginx.
 ### Tested with ###
 
 ``` Python
-django==4.0.0
+django==5.0.0
 ```
 
 ## Installation ###
@@ -89,31 +93,25 @@ urlpatterns += [
 
 ### Testing ###
 
-#### 1. Install Selenium ####
+#### API ####
 
-``` bash
-    pip install -U selenium
+
+``` python
+python manage.py test protected657
 ```
 
-#### 2. Install a Chromedriver ####
-
-    ! Selenium and Snap issues
-
-    https://github.com/SeleniumHQ/selenium/issues/7788#issuecomment-764804891
-    cd /snap/bin
-    sudo ln -s chromium.chromedriver chromedriver
-
-    https://github.com/mozilla/geckodriver/issues/2055
-
-#### Run tests ####
+#### GUI ####
 
 ``` bash
-    python manage.py test protected657
+cd tests
+
+npm install cypress --save-dev
+
+npx cypress open
+
+npx cypress run
+
 ```
-
-#### Postman ####
-
-    It's required to set the username, password and host variables for Postman to function.
 
 ### Build a new release ###
 
@@ -123,7 +121,7 @@ urlpatterns += [
 ```
 
 ``` python
-python3 -m build --sdist
+python -m build --sdist
 ```
 
 ### TODO: ###
@@ -131,3 +129,5 @@ python3 -m build --sdist
     Improve documentation
     More sests
     Code comments
+    pytest
+    pytest-html-reporter

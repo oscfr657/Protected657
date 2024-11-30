@@ -11,7 +11,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name="Protected657",
-    version='0.2.0a',
+    version='0.2.1a',
     description='A Django app to keep files protected, works with Nginx.',
     long_description=long_description,
     long_description_content_type='text/markdown',
