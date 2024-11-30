@@ -8,7 +8,7 @@ A Django app to keep files protected, works with Nginx.
 ### Tested with ###
 
 ``` Python
-django==4.0.0
+django==5.0.0
 ```
 
 ## Installation ###
@@ -67,31 +67,25 @@ urlpatterns += [
 
 ### Testing ###
 
-#### 1. Install Selenium ####
+#### API ####
 
-``` bash
-    pip install -U selenium
+
+``` python
+python manage.py test protected657
 ```
 
-#### 2. Install a Chromedriver ####
-
-    ! Selenium and Snap issues
-
-    https://github.com/SeleniumHQ/selenium/issues/7788#issuecomment-764804891
-    cd /snap/bin
-    sudo ln -s chromium.chromedriver chromedriver
-
-    https://github.com/mozilla/geckodriver/issues/2055
-
-#### Run tests ####
+#### GUI ####
 
 ``` bash
-    python manage.py test protected657
+cd tests
+
+npm install cypress --save-dev
+
+npx cypress open
+
+npx cypress run
+
 ```
-
-#### Postman ####
-
-    It's required to set the username, password and host variables for Postman to function.
 
 ### Build a new release ###
 
@@ -101,7 +95,7 @@ urlpatterns += [
 ```
 
 ``` python
-python3 -m build --sdist
+python -m build --sdist
 ```
 
 ### TODO: ###
@@ -109,3 +103,5 @@ python3 -m build --sdist
     Improve documentation
     More sests
     Code comments
+    pytest
+    pytest-html-reporter

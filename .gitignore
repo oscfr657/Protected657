@@ -3,5 +3,8 @@ todo.txt*
 .idea
 node_modules/
 npm-debug.log
+package-lock.json
+package.json
 .vscode
 *__pycache__
+cypress.env.json

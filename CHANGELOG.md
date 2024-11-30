@@ -4,6 +4,12 @@
 
 ## commits ##
 
+### 30 November 2024 ###
+
+    Replaced Postman with test_api.py and test_selenium.py with cypress.
+    Updated README, fixed requirements.
+
+
 ### 12 July 2023 ###
 
     Improved Postman tests.
