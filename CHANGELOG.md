@@ -4,6 +4,10 @@
 
 ## commits ##
 
+### 11 December 2024 ###
+
+    Improved Cypress tests 'Logedin can upload' and 'Logedout can\'t upload'. Added test 'Logedin can delete'.
+
 ### 30 November 2024 ###
 
     Replaced Postman with test_api.py and test_selenium.py with cypress.
