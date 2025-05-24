@@ -4,6 +4,10 @@
 
 ## commits ##
 
+### 24 May 2025 ###
+
+    feat: Added Selenium tests. Improved README.
+
 ### 11 December 2024 ###
 
     Improved Cypress tests 'Logedin can upload' and 'Logedout can\'t upload'. Added test 'Logedin can delete'.

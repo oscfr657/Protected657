@@ -8,56 +8,61 @@ A Django app to keep files protected, works with Nginx.
 ### Tested with ###
 
 ``` Python
-django==5.0.0
+Django==5.2.1
+djangorestframework==3.16.0
+python-magic==0.4.27
 ```
 
 ## Installation ###
   
 ### Pip requirements ###
 
-> pip install -r requirements.txt
+``` bash
+pip install -r requirements.txt
+```
 
 ## Setup ##
 
 ### Nginx ###
 
 ``` bash
-    location /internal/ {
-        internal;
-        alias /home/app/protected/files/;
-    }
+location /internal/ {
+    internal;
+    alias /home/app/protected/files/;
+}
 ```
 
 ### Django settings ###
 
-To your settings file,
+To your settings file add
 
 ``` Python
-    PROTECTED_MEDIA_ROOT = BASE_DIR / 'protected/files'
+PROTECTED_MEDIA_ROOT = BASE_DIR / 'protected/files'
 ```
 
 and add to the INSTALLED_APPS
 
 ``` Python
-    'protected657',
+'protected657',
 ```
 
 ### Database configuration ###
 
-> python manage.py migrate
+``` bash
+python manage.py migrate
+```
 
 ### Django url ###
 
 To the django projects' url.py add
 
-``` python
+``` Python
 from django.urls import path
-
 ```
 
 and
 
-``` python
+``` Python
 urlpatterns += [
     path('protected/', include('protected657.urls', namespace='protected657')),
   ]
@@ -67,41 +72,59 @@ urlpatterns += [
 
 ### Testing ###
 
-#### API ####
+#### Setup ####
 
+##### Browsers #####
 
-``` python
+Install Google-Chrome and Firefox.
+
+To run tests in Docker you can try to add to your Dockerfile
+
+``` bash
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN apt install -y ./google-chrome-stable_current_amd64.deb
+RUN apt install -y firefox-esr
+```
+
+#### Django tests ####
+
+##### Pip install #####
+
+``` bash
+pip install selenium webdriver-manager
+```
+
+##### Run tests #####
+
+``` bash
 python manage.py test protected657
 ```
 
-#### GUI ####
+#### Cypress ####
 
 ``` bash
-cd tests
-
+cd tests/gui_tests
 npm install cypress --save-dev
-
 npx cypress open
-
 npx cypress run
-
 ```
 
 ### Build a new release ###
 
 ``` bash
-    pip install black
-    black . --skip-string-normalization
+pip install black
+black . --skip-string-normalization
 ```
 
-``` python
+``` bash
 python -m build --sdist
 ```
 
 ### TODO: ###
 
+    Srceen size responsive design
     Improve documentation
-    More sests
+    More tests
     Code comments
     pytest
     pytest-html-reporter
