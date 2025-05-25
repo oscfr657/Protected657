@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "protected657"
+dynamic = ["version"]
+authors = [
+    { name="Oscar F" },
+]
+description = "A Django app to keep files protected, works with Nginx."
+readme = "README.md"
+license = "MIT"
+license-files = [
+    "LICENSE.md",
+]
+requires-python = ">= 3.10"
+dependencies = [
+    "django",
+    "djangorestframework",
+    "python-magic",
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+]
+
+[project.urls]
+repository = "https://github.com/oscfr657/protected657.git"
+
+[tool.setuptools]
+packages = ["protected657"]
+package-dir = {'protected657' = '.'}
+
+[tool.setuptools.package-data]
+protected657 = [
+  './migrations/*',
+  './static/*/*/*',
+  './static/*/*/*/*',
+  './templates/*',
+  './templates/*/*',
+  ]
+
+[tool.setuptools.dynamic]
+version = {file = "VERSION.txt"}

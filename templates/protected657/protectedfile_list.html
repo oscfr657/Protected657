@@ -14,7 +14,7 @@
         </thead>
         {% for file in object_list %}
             <tr>
-            <td>{{ file.title }}</td>
+            <td>{{ file }}</td>
             <td><a href="{{ file.file.url }}">{{ file.file.name }}</a></td>
             <td>{{ file.site }}</td>
             <td>{{ file.created_by }}</td>

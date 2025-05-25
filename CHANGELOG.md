@@ -4,6 +4,10 @@
 
 ## commits ##
 
+### 26 May 2025 ###
+
+    feat: New build setup with pyproject.toml. Added VERSION.txt, MANIFEST.in. Improved list template. MIT License.
+
 ### 24 May 2025 ###
 
     feat: Added Selenium tests. Improved README.
