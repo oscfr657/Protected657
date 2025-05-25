@@ -6,6 +6,7 @@
 
 ### 26 May 2025 ###
 
+    Build 0.3.0a0
     feat: New build setup with pyproject.toml. Added VERSION.txt, MANIFEST.in. Improved list template. MIT License.
 
 ### 24 May 2025 ###
@@ -21,7 +22,6 @@
     Replaced Postman with test_api.py and test_selenium.py with cypress.
     Updated README, fixed requirements.
     Build 0.2.1a
-
 
 ### 12 July 2023 ###
 
