@@ -15,10 +15,8 @@ python-magic==0.4.27
 
 ## Installation ###
   
-### Pip requirements ###
-
 ``` bash
-pip install -r requirements.txt
+pip install git+https://github.com/oscfr657/protected657.git@main
 ```
 
 ## Setup ##
@@ -70,6 +68,30 @@ urlpatterns += [
 
 ## For development ##
 
+### Clone ###
+
+``` bash
+git clone git+https://github.com/oscfr657/protected657.git@main .
+```
+
+### Pip requirements ###
+
+``` bash
+pip install -r requirements.txt
+```
+
+### Docker compose yaml file ###
+
+``` bash
+- protected_volume:/home/web/protected
+```
+
+and
+
+``` bash
+  protected_volume: {}
+```
+
 ### Testing ###
 
 #### Setup ####
@@ -106,7 +128,7 @@ python manage.py test protected657
 cd tests/gui_tests
 npm install cypress --save-dev
 npx cypress open
-npx cypress run
+npx cypress run  --headed
 ```
 
 ### Build a new release ###
