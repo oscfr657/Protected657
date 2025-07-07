@@ -11,7 +11,7 @@ User = get_user_model()
 
 class ProtectedFilesAdminUserTest(SeleniumChromeTestCase):
 
-    USERNAME = "testare1"
+    USERNAME = "seleniumtester"
     PASSWORD = "password1234"
     UPLOADFILE = f"{settings.BASE_DIR}/protected657/door_logo43.png"
 
@@ -68,7 +68,7 @@ class ProtectedFilesAdminUserTest(SeleniumChromeTestCase):
         self.selenium.implicitly_wait(0.5)
         self.selenium.find_element(By.XPATH, "//input[@type='submit']").click()
         assert self.selenium.page_source.find("Selenium test")
-        assert 'The protected file “Selenium test” was deleted successfully.' in self.selenium.page_source
+        assert 'protected file “Selenium test”' in self.selenium.find_elements(By.CLASS_NAME, "success")[0].get_attribute('innerHTML')
         protected_files = ProtectedFile.objects.filter(created_by=self.user1)
         assert protected_files.count() == 0
 
