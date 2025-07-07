@@ -1,3 +1,5 @@
+import os
+
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 from selenium import webdriver
@@ -8,6 +10,23 @@ from webdriver_manager.core.utils import read_version_from_cmd
 from webdriver_manager.core.os_manager import PATTERN
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
+
+from playwright.sync_api import sync_playwright
+
+
+class PlaywrightChromeTestCase(StaticLiveServerTestCase):
+    @classmethod
+    def setUpClass(cls):
+        os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+        super().setUpClass()
+        cls.playwright = sync_playwright().start()
+        cls.browser = cls.playwright.chromium.launch()
+
+    @classmethod
+    def tearDownClass(cls):
+        super().tearDownClass()
+        cls.browser.close()
+        cls.playwright.stop()
 
 
 class SeleniumChromeTestCase(StaticLiveServerTestCase):
