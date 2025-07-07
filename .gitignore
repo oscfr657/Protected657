@@ -8,3 +8,4 @@ package.json
 .vscode
 *__pycache__
 cypress.env.json
+*tests/gui_tests/cypress/screenshots
