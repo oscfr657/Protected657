@@ -4,6 +4,21 @@
 
 ## commits ##
 
+### 7 July 2025 ###
+
+    docs: Updated CHANGELOG.
+    chore: cypress/screenshots added to .gitignore
+    docs: Improved README.md regarding setup docker, playwright and selenium testing.
+    test: Improved selenium test.
+    test: Added playwrite tests.
+
+### 4 July 2025 ###
+
+    test: Added a k6 test.
+    docs: Added a requirements-specification and user-stories.
+    test: Improved Cypress test regarding adding a support command adminLogin.
+    docs: Improved README.md regarding development setup and cypress testing.
+
 ### 26 May 2025 ###
 
     Build 0.3.0a0
