@@ -100,20 +100,28 @@ and
 
 Install Google-Chrome and Firefox.
 
-To run tests in Docker you can try to add to your Dockerfile
-
-``` bash
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN apt install -y ./google-chrome-stable_current_amd64.deb
-RUN apt install -y firefox-esr
-```
-
 #### Django tests ####
 
 ##### Pip install #####
 
 ``` bash
-pip install selenium webdriver-manager
+pip install selenium webdriver-manager playwright
+playwright install --with-deps
+```
+
+##### Dockerfile #####
+
+To run tests in Docker you can try to add to your Dockerfile
+
+``` bash
+RUN apt install -y wget unzip zip
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN apt install -y ./google-chrome-stable_current_amd64.deb
+RUN apt install -y firefox-esr
+RUN chown dockeruser:dockeruser -R .
+
+RUN python -m pip install playwright
+RUN playwright install --with-deps
 ```
 
 ##### Run tests #####
@@ -162,5 +170,3 @@ python3 -m build --sdist
     Improve documentation
     More tests
     Code comments
-    pytest
-    pytest-html-reporter
